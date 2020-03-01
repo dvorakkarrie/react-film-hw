@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import FilmRow from './FilmRow'
-// import FilmDetails from "./FilmDetails";
 
 class FilmListing extends Component {
 

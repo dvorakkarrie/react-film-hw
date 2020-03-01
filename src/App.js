@@ -16,8 +16,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className="film-library">
-          <FilmListing TMDB={TMDB} />
-          <FilmDetails TMDB={TMDB} />
+          <div className="film-list">
+            <h1 className="section-title">FILMS</h1>
+            <div><FilmListing TMDB={TMDB} /></div>
+          </div>
+          <div className="film-details">
+            <h1 className="section-title">DETAILS</h1>
+            <FilmDetails TMDB={TMDB} />
+          </div>
         </div>
       </div>
     );

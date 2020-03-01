@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import FilmPoster from './FilmPoster'
 
 class FilmRow extends Component {
     render() {;
@@ -9,7 +10,7 @@ class FilmRow extends Component {
 
         return (
             <div className="film-row">
-                <img src={`https://image.tmdb.org/t/p/w780${films.poster_path}`} alt={films.title} />  
+                <FilmPoster poster_path={films.poster_path} />
                 <div className="film-summary">
                     <h1>{films.title}</h1>
                     <p>{year}</p>
