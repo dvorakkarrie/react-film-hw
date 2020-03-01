@@ -9,12 +9,13 @@ class FilmListing extends Component {
   }
 
   render() {
-    let allFilms = this.props.TMDB.films;
+    let allFilms = this.props.TMDB.films.map( 
+        (film, index) => ( this.props.TMDB.films[index].title ))
 
     return (
       <div className="film-list">
         <h1 className="section-title">FILMS</h1>
-        <h1>{allFilms[0].title}</h1>
+        <h1>{allFilms}</h1>
       </div>
     );
   }
