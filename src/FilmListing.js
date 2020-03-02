@@ -17,13 +17,16 @@ class FilmListing extends Component {
   }
 
   render() {
-    let allFilms = this.props.TMDB.films.map((film, index) => {
+    const allFilms = this.props.TMDB.films.map((film, index) => {
         return (
             <FilmRow 
                 key={film.id} 
-                title={film.title} 
+                film={film.title}
                 poster_path={film.poster_path}
-                release_date={film.release_date} />
+                release_date={film.release_date}
+                isFave={this.props.faves.includes(film)}
+                onFaveToggle={() => this.props.onFaveToggle(film)} 
+            />
        )
     })
     console.log(this.props.TMDB.films)
@@ -38,7 +41,7 @@ class FilmListing extends Component {
           </div>
           <div className={`film-list-filter${this.state.filter === 'all' ? 'is active' : ''}`} onClick={this.handleFilterClick}>
             FAVES
-            <span className="section-count">0</span>
+            <span className="section-count">{this.props.faves.length}</span>
           </div>
         </div>
         {allFilms}
