@@ -3,6 +3,12 @@ import FilmRow from './FilmRow'
 
 class FilmListing extends Component {
 
+  handleFilterClick = () => {
+    let filter;
+    console.log(`Setting filter to ${filter}`)
+
+  }
+
   render() {
     let allFilms = this.props.TMDB.films.map((film, index) => {
         return (
@@ -17,7 +23,18 @@ class FilmListing extends Component {
     console.log(allFilms)
     return (
       <div className="film-list">
-            {allFilms} 
+        <h1 className="section-title">FILMS</h1>
+        <div className="film-list-filters">
+          <div className="film-list-filter">
+            ALL
+            <span className="section-count">{this.props.TMDB.films.length}</span>
+          </div>
+          <div className="film-list-filter" onClick={this.handleFilterClick}>
+            FAVES
+            <span className="section-count">0</span>
+          </div>
+        </div>
+        {allFilms}
       </div>
     );
   }
